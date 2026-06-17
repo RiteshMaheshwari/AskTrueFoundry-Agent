@@ -1,0 +1,17 @@
+services:
+  asktruefoundry-mcp:
+    build:
+      context: .
+    env_file:
+      - .env
+    environment:
+      ASKTF_MCP_HOST: 0.0.0.0
+      ASKTF_MCP_PORT: "8000"
+      ASKTF_MCP_PATH: /mcp
+      ASKTF_DATA_DIR: /app/data
+      ASKTF_INDEX_PATH: /app/data/index.jsonl
+      ASKTF_EMBEDDINGS_PATH: /app/data/embeddings.npy
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data:ro

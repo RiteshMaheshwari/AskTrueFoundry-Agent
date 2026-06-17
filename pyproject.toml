@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "asktruefoundry"
+version = "0.1.0"
+description = "AskTrueFoundry RAG MCP server"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "httpx>=0.28",
+  "mcp>=1.12",
+  "numpy>=1.26",
+  "openai>=1.0",
+  "python-dotenv>=1.0",
+  "pydantic>=2.0",
+]
+
+[project.scripts]
+asktruefoundry = "asktruefoundry.cli:main"
+asktruefoundry-ingest = "asktruefoundry.ingest:main"
+asktruefoundry-mcp = "asktruefoundry.mcp_server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
